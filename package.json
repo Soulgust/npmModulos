@@ -1,6 +1,6 @@
 {
   "name": "npm-utilitario",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "package utilitario basico el cual contiene momentaneamente funciones basicas, saludo, suma, resta entre otros",
   "main": "src/index.js",
   "scripts": {
