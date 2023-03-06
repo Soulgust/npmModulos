@@ -1,6 +1,6 @@
 {
   "name": "npm-utilitario",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "package utilitario basico el cual contiene momentaneamente funciones basicas, saludo, suma, resta entre otros",
   "main": "src/index.js",
   "scripts": {
@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soulgust/npmModulos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Soulgust/npmModulos/issues"
+  },
+  "homepage": "https://github.com/Soulgust/npmModulos#readme"
 }
