@@ -23,11 +23,11 @@
  * @param {string} rut 
  * @returns {boolean} 
  */  
-  
+
  const validacionRut = function validaRut(dato){
     //PASO 1
     // separación rut entre numero y dv
-    var rutVar = rut
+    var rutVar = dato
     var respuesta = false;
     //formato para el rut el cual quita 
     //- el último digito con subtring
