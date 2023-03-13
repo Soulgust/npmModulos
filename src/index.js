@@ -85,12 +85,68 @@ const prettyNombreCompleto = function prettyNombreCompleto(dato){
         return "Nombre Invalido";
     }
 }
+ 
+/**
+ * Metodo que permite validar rut ingresado por parametro devuelve verdadero o falso
+ * permite ingreso con formato
+ *  - nn.nnn.nnn-n /n.nnn.nnn-n
+ *  - nnnnnnnnn
+ * Fecha Creación: 13-03-2023
+ * @author Gustavo Ubilla
+ * @param {string} rut 
+ * @returns {boolean} 
+ */
+const validarRut = function valRut(rut){
 
+    var validar = val.validacionRut(rut)
+    
+    if(validar){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+/**
+ * Metodo que entrega objeto con distinto tipos de formatos
+ *  permite ingreso con formato
+ *  - nn.nnn.nnn-n /n.nnn.nnn-n
+ *  - nnnnnnnnn
+ * Fecha Creación: 13-03-2023
+ * @author Gustavo Ubilla
+ * @param {string} rut 
+ * @returns {Object}
+ */
+const formatoRut =  function formatoRut(rut){
+    var rutForm = rut 
+    var validacion = val.validacionRut(rutForm)
+    var resp = {              
+        rutSinDv: 0,
+        dv: "",
+        rutConFormato: "",
+        rutConGuion : "",
+        rutSinFormato: ""
+    }
+    if(validacion){
+        resp.rutSinDv = parseInt(rutForm.substring(0, rutForm.length -1).replace(/\D/g, ''))
+        resp.dv =rutForm.substring(rutForm.length -1).toUpperCase()
+        resp.rutConFormato =  resp.rutSinDv.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')+'-'+rutForm.substring(rutForm.length -1).toUpperCase()
+        resp.rutConGuion = parseInt(rutForm.substring(0, rutForm.length -1).replace(/\D/g, ''))+"-"+rutForm.substring(rutForm.length -1).toUpperCase()
+        resp.rutSinFormato = rutForm.replace(/\D/g, '')
+    }
+    else{
+        resp = "Rut incorrecto";
+    }
+    return resp;
+}
 module.exports = {
     saludo,
     sumar,
     resta,
     prettyNombre,
     prettyNombreCompleto,
-    calculadora
+    calculadora,
+    validarRut,
+    formatoRut
 }
